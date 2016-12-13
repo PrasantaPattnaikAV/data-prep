@@ -13,7 +13,11 @@
 
 package org.talend.dataprep.transformation.service.export;
 
-import com.fasterxml.jackson.core.JsonParser;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.List;
+
 import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -36,10 +40,7 @@ import org.talend.dataprep.transformation.cache.TransformationMetadataCacheKey;
 import org.talend.dataprep.transformation.service.ExportStrategy;
 import org.talend.dataprep.transformation.service.ExportUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.List;
+import com.fasterxml.jackson.core.JsonParser;
 
 /**
  * A {@link ExportStrategy strategy} to export a preparation (using its default data set), using any information
@@ -52,11 +53,6 @@ public class OptimizedExportStrategy extends StandardExportStrategy {
 
     @Autowired
     private CacheKeyGenerator cacheKeyGenerator;
-
-    @Override
-    public int order() {
-        return 0; // Ensure this is the first strategy tried.
-    }
 
     @Override
     public boolean accept(ExportParameters parameters) {

@@ -38,11 +38,6 @@ import com.fasterxml.jackson.core.JsonParser;
 public class DataSetExportStrategy extends StandardExportStrategy {
 
     @Override
-    public int order() {
-        return 2;
-    }
-
-    @Override
     public boolean accept(ExportParameters parameters) {
         if (parameters == null) {
             return false;

@@ -54,11 +54,6 @@ public class ApplyPreparationExportStrategy extends StandardExportStrategy {
     private CacheKeyGenerator cacheKeyGenerator;
 
     @Override
-    public int order() {
-        return 3;
-    }
-
-    @Override
     public boolean accept(ExportParameters parameters) {
         if (parameters == null) {
             return false;

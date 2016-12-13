@@ -58,11 +58,6 @@ public class PreparationExportStrategy extends StandardExportStrategy {
     private SecurityProxy securityProxy;
 
     @Override
-    public int order() {
-        return 1;
-    }
-
-    @Override
     public boolean accept(final ExportParameters parameters) {
         if (parameters == null) {
             return false;
